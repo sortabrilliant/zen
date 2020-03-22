@@ -1,7 +1,13 @@
 <?php
 add_action('after_setup_theme', 'zen_editor_css');
 
-add_theme_support( 'wp-block-styles' );
+add_theme_support( 'title-tag' );
+add_theme_support( 'custom-logo', array(
+	'height'      => 250,
+	'width'       => 250,
+	'flex-width'  => true,
+	'flex-height' => true,
+) );
 
 function zen_editor_css()
 {
