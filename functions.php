@@ -21,18 +21,26 @@ function zen_customizer_options($wp_customize)
 {
     $wp_customize->remove_control('show_on_front');
 
-    $wp_customize->add_section('static_front_page', array(
-  'title' => __('Homepage Settings'),
-  'description' => __('Select which page has your content.'),
-  'priority' => 160,
-  'capability' => 'edit_theme_options',
+		remove_action( 'customize_controls_enqueue_scripts', array( $wp_customize->nav_menus, 'enqueue_scripts' ) );
+		remove_action( 'customize_register', array( $wp_customize->nav_menus, 'customize_register' ), 11 );
+		remove_filter( 'customize_dynamic_setting_args', array( $wp_customize->nav_menus, 'filter_dynamic_setting_args' ) );
+		remove_filter( 'customize_dynamic_setting_class', array( $wp_customize->nav_menus, 'filter_dynamic_setting_class' ) );
+		remove_action( 'customize_controls_print_footer_scripts', array( $wp_customize->nav_menus, 'print_templates' ) );
+		remove_action( 'customize_controls_print_footer_scripts', array( $wp_customize->nav_menus, 'available_items_template' ) );
+		remove_action( 'customize_preview_init', array( $wp_customize->nav_menus, 'customize_preview_init' ) );
+
+		$wp_customize->add_section('static_front_page', array(
+  		'title' => __('Homepage Settings'),
+  		'description' => __('Select which page has your content.'),
+  		'priority' => 160,
+  		'capability' => 'edit_theme_options',
 ));
 
     $wp_customize->add_setting(
-    'zen_page_setting',
+    	'zen_page_setting',
     array(
-                'capability' => 'edit_theme_options',
-                'sanitize_callback' => 'zen_sanitize_dropdown_pages',
+            'capability' => 'edit_theme_options',
+            'sanitize_callback' => 'zen_sanitize_dropdown_pages',
       )
 );
     $wp_customize->add_control(
