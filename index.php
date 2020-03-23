@@ -15,7 +15,7 @@
 		<div class="site-branding">
 			<?php the_custom_logo(); ?>
 				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
-				<p class="site-description"><?php echo $zen_description; ?></p>
+				<p class="site-description"><?php bloginfo('description'); ?></p>
 		</div>
 
 		<div id="content" class="site-content">
