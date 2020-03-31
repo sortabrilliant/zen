@@ -10,6 +10,14 @@ add_theme_support('custom-logo', array(
     'flex-height' => true
 ));
 
+// Let's hide the stuff we don't need
+add_action( 'admin_menu', 'zen_remove_admin_menus' );
+
+function zen_remove_admin_menus() {
+    remove_menu_page( 'edit-comments.php' );
+    remove_menu_page( 'edit.php' );
+}
+
 // Here we'll add and remove things from the customizer
 function zen_customizer_options($wp_customize)
 {
