@@ -1,6 +1,4 @@
 <?php
-add_action('after_setup_theme', 'zen_editor_css');
-
 add_theme_support( 'title-tag' );
 add_theme_support( 'align-wide' );
 add_theme_support( 'custom-logo', array(
@@ -10,11 +8,11 @@ add_theme_support( 'custom-logo', array(
 	'flex-height' => true,
 ) );
 
-function zen_editor_css()
-{
-    add_theme_support('editor-styles');
-    add_editor_style('editor.css');
+function zen_styles() {
+	wp_enqueue_style( 'style', get_stylesheet_directory_uri() . '/style.css' );
 }
+
+add_action( 'wp_enqueue_scripts', 'zen_styles' );
 
 add_action('customize_register', 'zen_customizer_options');
 
