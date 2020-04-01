@@ -8,22 +8,16 @@ Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 */
-
-/* GLOBAL VARIABLES */
 :root {
   --bg: #2e8744;
   --text: #f4f6eb;
   --border: #1c4d2c;
   --detail: #1c4d2c;
   --header: transparent;
-
   --bodyfont: 'IBM Plex Sans Condensed', sans-serif;
   --headlinefont: 'Arbutus Slab', serif;
   --captionfont: 'IBM Plex Mono', monospace;
 }
-
-
-
 /* GENERAL STYLING RULES */
 * {
   margin: 0;
@@ -65,13 +59,13 @@ a:hover {
 }
 
 *:focus {
-  outline: solid 4px rgba(0,0,0,.3);
+  outline: solid 4px rgba(0, 0, 0, .3);
 }
 
-
-
-
-
+ul, ol {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
 /* GENERAL LAYOUT RULES */
 .site-content, .site-branding {
   width: 100%;
@@ -79,20 +73,12 @@ a:hover {
   margin: auto;
   padding: 40px;
 }
-
-
-
-
-
 /* HEADER */
 .site-header {
   border-bottom: solid 4px #000;
   border-bottom-color: var(--border);
   background: var(--header);
 }
-
-
-
 /* SEPARATORS */
 hr.wp-block-separator {
   border: none;
@@ -122,9 +108,6 @@ hr.wp-block-separator:after {
   border-top: solid 4px #000;
   border-top-color: var(--border);
 }
-
-
-
 /* HEADLINES & TEXT */
 h1, h2, h3 {
   font-family: var(--headlinefont);
@@ -164,24 +147,17 @@ p {
   margin-bottom: 1em;
   max-width: 30em;
 }
-
-
-
-
-
 /* BLOCK CODE */
 .wp-block-code {
-  background: rgba(0,0,0,.7);
+  background: rgba(0, 0, 0, .7);
   color: #fff;
   font-family: var(--captionfont);
   padding: 20px;
   overflow-x: auto;
 }
-
-
-
 /* BLOCK TABLE */
 .wp-block-table {
+  margin-bottom: 1em;
 }
 
 .wp-block-table td {
@@ -189,7 +165,9 @@ p {
   border-bottom-color: var(--border);
 }
 
-
+.wp-block-table tr:last-of-type td {
+  border-bottom: none;
+}
 
 /* BLOCK FILE */
 .wp-block-file {
@@ -198,7 +176,7 @@ p {
   display: inline-block;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 2px 2px 0px rgba(0,0,0,.2);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
   transition: all .3s;
   background: var(--bg);
 }
@@ -206,7 +184,7 @@ p {
 .wp-block-file:hover {
   position: relative;
   transform: scale(1.04);
-  box-shadow: 5px 5px 0px rgba(0,0,0,.1);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, .1);
 }
 
 .wp-block-file a {
@@ -238,11 +216,7 @@ p {
   content: ' ⬇';
   padding-right: 10px;
 }
-
-
-
-
-/* GALLERY, COVER, CAPTIONS, IMAGES,  */
+/* GALLERY, COVER, CAPTIONS, IMAGES, */
 .wp-block-cover, .wp-block-cover-image {
   background-color: var(--detail);
 }
@@ -262,10 +236,6 @@ figcaption {
 .alignleft, .alignright {
   max-width: 80%;
 }
-
-
-
-
 /* BLOCK BUTTON */
 .wp-block-button {
 }
@@ -278,7 +248,7 @@ figcaption {
   padding: 6px 20px;
   border-radius: 40px;
   overflow: hidden;
-  box-shadow: 2px 2px 0px rgba(0,0,0,.2);
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, .2);
   transition: all .3s;
   background: var(--detail);
 }
@@ -292,21 +262,12 @@ figcaption {
 .wp-block-button__link:hover {
   position: relative;
   transform: scale(1.04);
-  box-shadow: 5px 5px 0px rgba(0,0,0,.1);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, .1);
 }
-
-
-
-
-
 /* BLOCK PREFORMATTED */
 pre {
   overflow-x: auto;
 }
-
-
-
-
 /* DROPDOWN */
 select.postform {
   background: none;
@@ -316,10 +277,6 @@ select.postform {
   color: var(--text);
   border-radius: 200px !important;
 }
-
-
-
-
 /* BLOCK LATEST POSTS */
 .wp-block-latest-posts li a {
   font-family: var(--headlinefont);
@@ -331,20 +288,12 @@ select.postform {
   font-size: .7em;
   color: var(--color);
 }
-
-
-
 /* BLOCK QUOTE */
 .wp-block-pullquote blockquote {
   border-left: solid 4px #000 !important;
   border-left-color: var(--border) !important;
   padding-left: .6em;
 }
-
-
-
-
-
 /* ANIMATIONS */
 @keyframes intro {
   from {
@@ -357,10 +306,6 @@ select.postform {
     transform: translateY(0);
   }
 }
-
-
-
-
 /* BREAKPOINTS */
 @media (max-width: 900px) {
   body {
