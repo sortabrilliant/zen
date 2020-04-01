@@ -24,6 +24,7 @@
                             <?php bloginfo('description'); ?>
                         </p>
                 </div>
+              </header>
 
                 <div id="content" class="site-content">
                     <?php $post = get_post( (get_theme_mod( 'zen_page_setting' )) );
