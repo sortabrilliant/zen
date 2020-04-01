@@ -43,6 +43,14 @@ img, iframe, embed, video, audio, code, pre {
   max-width: 100% !important;
 }
 
+strong {
+	font-weight: bold;
+}
+
+em {
+	font-style: italic;
+}
+
 .site {
 }
 
