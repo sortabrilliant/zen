@@ -330,6 +330,20 @@ select.postform {
     padding: 20px;
   }
 
+  .alignleft, .alignright {
+    max-width: 100%;
+  }
+
+  .wp-block-file__button {
+    display: none !important;
+  }
+
+  .wp-block-column, .wp-block-text-columns {
+    display: block;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  
   .wp-block-cover.alignfull, .wp-block-image.alignfull, .wp-block-gallery.alignfull {
     margin-left: -20px;
     margin-right: -20px;
