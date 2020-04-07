@@ -23,6 +23,8 @@ add_action( 'admin_menu', 'zen_remove_admin_menus' );
 // Here we'll add and remove things from the customizer.
 function zen_customizer_options( $wp_customize ) {
 	$wp_customize->remove_control( 'show_on_front' );
+	$wp_customize->remove_control( 'page_on_front' );
+	$wp_customize->remove_control( 'page_for_posts' );
 
 	$wp_customize->add_section(
 		'static_front_page',
@@ -35,12 +37,14 @@ function zen_customizer_options( $wp_customize ) {
 	);
 
 	$wp_customize->add_setting(
-		'zen_page_setting',
+		'page_on_front',
 		array(
-			'capability'        => 'edit_theme_options',
-			'sanitize_callback' => 'zen_sanitize_dropdown_pages',
+			'type'              => 'option',
+			'capability'        => 'manage_options',
+			'sanitize_callback' => 'zen_setup_front_page',
 		)
 	);
+
 	$wp_customize->add_control(
 		new WP_Customize_Control(
 			$wp_customize,
@@ -49,7 +53,7 @@ function zen_customizer_options( $wp_customize ) {
 				'type'     => 'dropdown-pages',
 				'label'    => __( 'Where\'s your content?', 'zen' ),
 				'section'  => 'static_front_page',
-				'settings' => 'zen_page_setting',
+				'settings' => 'page_on_front',
 			)
 		)
 	);
@@ -192,4 +196,17 @@ function zen_sanitize_dropdown_pages( $page_id, $setting ) {
 	$page_id = absint( $page_id );
 
 	return ( 'publish' === get_post_status( $page_id ) ? $page_id : $setting->default );
+}
+
+/**
+ * Update homepage display settings.
+ *
+ * @return int
+ */
+function zen_setup_front_page( $value ) {
+	if ( ! empty( $value ) ) {
+		update_option( 'show_on_front', 'page' );
+	}
+
+	return (int) $value;
 }
