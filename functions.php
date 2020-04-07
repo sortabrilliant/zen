@@ -29,8 +29,8 @@ function zen_customizer_options( $wp_customize ) {
 	$wp_customize->add_section(
 		'static_front_page',
 		array(
-			'title'       => __( 'Zen Settings' ),
-			'description' => __( '<h2>Why Zen?</h2><p>Zen is all about making WordPress simple again. Taking out all the stuff you don\'t need and getting you up and running as soon as possible.</p><h3>Now you have some decisions to make.</h3> <em>Choose wisely.</em> ' ),
+			'title'       => __( 'Zen Settings', 'zen' ),
+			'description' => __( '<h2>Why Zen?</h2><p>Zen is all about making WordPress simple again. Taking out all the stuff you don\'t need and getting you up and running as soon as possible.</p><h3>Now you have some decisions to make.</h3> <em>Choose wisely.</em>', 'zen' ),
 			'priority'    => 160,
 			'capability'  => 'edit_theme_options',
 		)
@@ -72,7 +72,7 @@ function zen_customizer_options( $wp_customize ) {
 			'text_color',
 			array(
 				'section' => 'static_front_page',
-				'label'   => esc_html__( 'What color is your text?', 'theme' ),
+				'label'   => esc_html__( 'What color is your text?', 'zen' ),
 			)
 		)
 	);
@@ -93,7 +93,7 @@ function zen_customizer_options( $wp_customize ) {
 			'bg_color',
 			array(
 				'section' => 'static_front_page',
-				'label'   => esc_html__( 'What color is your background?', 'theme' ),
+				'label'   => esc_html__( 'What color is your background?', 'zen' ),
 			)
 		)
 	);
@@ -114,7 +114,7 @@ function zen_customizer_options( $wp_customize ) {
 			'accent_color',
 			array(
 				'section' => 'static_front_page',
-				'label'   => esc_html__( 'What color would make a nice accent?', 'theme' ),
+				'label'   => esc_html__( 'What color would make a nice accent?', 'zen' ),
 			)
 		)
 	);
