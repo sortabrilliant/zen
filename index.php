@@ -24,15 +24,15 @@
 							<?php bloginfo( 'description' ); ?>
 						</p>
 				</div>
-			  </header>
+			</header>
+
+			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 				<div id="content" class="site-content">
-					<?php
-					$post   = get_post( ( get_theme_mod( 'zen_page_setting' ) ) );
-					$output = apply_filters( 'the_content', $post->post_content );
-					echo $output;
-					?>
+					<?php the_content(); ?>
 				</div>
+
+			<?php endwhile; endif; ?>
 
 		</div>
 
