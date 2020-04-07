@@ -1,17 +1,21 @@
 <?php
 
 // Let's add some of the fun editor bits.
-add_theme_support( 'title-tag' );
-add_theme_support( 'align-wide' );
-add_theme_support(
-	'custom-logo',
-	array(
-		'height'      => 250,
-		'width'       => 250,
-		'flex-width'  => true,
-		'flex-height' => true,
-	)
-);
+function zen_setup_theme() {
+	add_theme_support( 'title-tag' );
+	add_theme_support( 'align-wide' );
+	add_theme_support(
+		'custom-logo',
+		array(
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
+		)
+	);
+}
+add_action( 'after_setup_theme', 'zen_setup_theme' );
+
 
 // Let's hide the stuff we don't need.
 function zen_remove_admin_menus() {
