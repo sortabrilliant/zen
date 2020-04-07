@@ -191,13 +191,6 @@ function zen_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'zen_styles' );
 
-// This is how we pick which page the content is on.
-function zen_sanitize_dropdown_pages( $page_id, $setting ) {
-	$page_id = absint( $page_id );
-
-	return ( 'publish' === get_post_status( $page_id ) ? $page_id : $setting->default );
-}
-
 /**
  * Update homepage display settings.
  *
